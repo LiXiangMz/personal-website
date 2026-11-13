@@ -5,7 +5,7 @@
  * the biography set at a comfortable reading measure beside it — the only
  * section on the page with continuous prose, so it gets the widest line length
  * and the most air.
- * --- @ty.aicoding@1794387360231 ---
+ * --- @ty.aicoding@1794551031437 ---
  */
 import Image from "next/image"
 
@@ -16,7 +16,7 @@ export function About() {
     <section
       id="about"
       aria-labelledby="about-title"
-      className="scroll-mt-20 border-t border-border bg-secondary/40"
+      className="scroll-mt-24 border-t border-border bg-secondary/40"
     >
       <div className="mx-auto max-w-[87.5rem] px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">

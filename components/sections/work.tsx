@@ -10,7 +10,11 @@
  *
  * The heading and the "n photographs, years" line come from `lib/content.ts`,
  * where the line is derived from `works` rather than written by hand.
- * --- @ty.aicoding@1794535455860 ---
+ *
+ * `scroll-mt-24` clears the sticky header at every width — the header is two
+ * rows below `sm` (≈83px) and one row above it (≈81px), so 96px works for both
+ * and needs no breakpoint.
+ * --- @ty.aicoding@1794551031437 ---
  */
 import Image from "next/image"
 
@@ -21,6 +25,7 @@ import { cn } from "@/lib/utils"
  * Grid cell width as a fraction of the twelve-column band, so `next/image`
  * asks for a file that matches the frame it is drawn into: a seven-column
  * frame on a 1400px container is roughly 58vw, a four-column one about 33vw.
+ * --- @ty.aicoding@1794551031437 ---
  */
 function frameSizes(cell: string) {
   const span = Number.parseInt(cell.match(/col-span-(\d+)/)?.[1] ?? "12", 10)
@@ -30,7 +35,7 @@ function frameSizes(cell: string) {
 
 export function Work() {
   return (
-    <section id="work" aria-labelledby="work-title" className="scroll-mt-20">
+    <section id="work" aria-labelledby="work-title" className="scroll-mt-24">
       <div className="mx-auto max-w-[87.5rem] px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
         <div className="flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-baseline sm:justify-between">
           <h2

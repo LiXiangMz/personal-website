@@ -186,7 +186,7 @@ export const works: Photograph[] = [
 /**
  * Span of `year` across the given photographs, for the line above the grid.
  * Returns an empty string when no entry carries a parsable year.
- * --- @ty.aicoding@1794535335110 ---
+ * --- @ty.aicoding@1794550723086 ---
  */
 function yearRange(list: Photograph[]) {
   const years = list
@@ -206,11 +206,24 @@ function yearRange(list: Photograph[]) {
 /**
  * Heading and the small line above the grid. The count and the year span are
  * derived from `works`, so adding or removing a photograph keeps them true.
- * --- @ty.aicoding@1794535335110 ---
+ * With no parsable years the line stops after the count rather than trailing a
+ * dangling separator.
+ * --- @ty.aicoding@1794550723086 ---
+ */
+function summaryLine(list: Photograph[]) {
+  const count = `${list.length} ${list.length === 1 ? "photograph" : "photographs"}`
+  const range = yearRange(list)
+
+  return range ? `${count}, ${range}` : count
+}
+
+/**
+ * Heading and the small line above the grid.
+ * --- @ty.aicoding@1794550723086 ---
  */
 export const workSection = {
   heading: "Selected work",
-  summary: `${works.length} photographs, ${yearRange(works)}`,
+  summary: summaryLine(works),
 }
 
 export const pricing = {

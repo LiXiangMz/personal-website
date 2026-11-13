@@ -1,24 +1,24 @@
 /* Design tokens for the studio site.
  *
- * Light: warm paper. Dark: deep ink. One accent only — a muted cyan that
- * recurs in the shoreline work, used for links and small rules, never as a
- * fill for large areas.
+ * Light only: warm paper. The site is deliberately light-only — photographs
+ * read better on paper than on ink, and there is no theme switch to reach a
+ * dark set of tokens, so none is defined.
  *
- * The light accent is dark enough to clear 4.5:1 against the paper even at
- * 11px with wide letter-spacing (oklch 0.51 / 0.058 / 205 ≈ 5.4:1), so the
- * small caps labels that use it are readable rather than marginal.
+ * One accent only — a muted cyan that recurs in the shoreline work, used for
+ * links and small rules, never as a fill for large areas. It is dark enough to
+ * clear 4.5:1 against the paper even at 11px with wide letter-spacing
+ * (oklch 0.51 / 0.058 / 205 ≈ 5.4:1), so the small caps labels that use it are
+ * readable rather than marginal.
  *
  * Typography: Inter for anything read line by line (navigation, captions,
  * pricing detail), Cormorant Garamond for display type (name, section titles,
  * pull quotes). The pairing is deliberate — the serif carries the images, the
  * sans carries the facts.
- * --- @ty.aicoding@1794535505513 ---
+ * --- @ty.aicoding@1794550840332 ---
  */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-
-@custom-variant dark (&:is(.dark *));
 
 :root {
   --background: oklch(0.985 0.003 85);
@@ -53,35 +53,6 @@
   --sidebar-accent-foreground: oklch(0.25 0.01 60);
   --sidebar-border: oklch(0.9 0.006 80);
   --sidebar-ring: oklch(0.51 0.058 205);
-}
-
-.dark {
-  --background: oklch(0.16 0.006 60);
-  --foreground: oklch(0.94 0.004 85);
-  --card: oklch(0.2 0.007 60);
-  --card-foreground: oklch(0.94 0.004 85);
-  --popover: oklch(0.2 0.007 60);
-  --popover-foreground: oklch(0.94 0.004 85);
-  --primary: oklch(0.93 0.004 85);
-  --primary-foreground: oklch(0.16 0.006 60);
-  --secondary: oklch(0.25 0.008 60);
-  --secondary-foreground: oklch(0.94 0.004 85);
-  --muted: oklch(0.25 0.008 60);
-  --muted-foreground: oklch(0.68 0.01 70);
-  --accent: oklch(0.72 0.06 205);
-  --accent-foreground: oklch(0.16 0.006 60);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.72 0.06 205);
-  --sidebar: oklch(0.2 0.007 60);
-  --sidebar-foreground: oklch(0.94 0.004 85);
-  --sidebar-primary: oklch(0.93 0.004 85);
-  --sidebar-primary-foreground: oklch(0.16 0.006 60);
-  --sidebar-accent: oklch(0.25 0.008 60);
-  --sidebar-accent-foreground: oklch(0.94 0.004 85);
-  --sidebar-border: oklch(1 0 0 / 12%);
-  --sidebar-ring: oklch(0.72 0.06 205);
 }
 
 @theme inline {

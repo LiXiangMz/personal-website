@@ -10,7 +10,7 @@
  *
  * Heading, caption, column names and the closing link label live in
  * `lib/content.ts` with the rest of the copy.
- * --- @ty.aicoding@1794535467522 ---
+ * --- @ty.aicoding@1794551031437 ---
  */
 import { pricing, site } from "@/lib/content"
 
@@ -19,7 +19,7 @@ export function Pricing() {
     <section
       id="pricing"
       aria-labelledby="pricing-title"
-      className="scroll-mt-20 border-t border-border"
+      className="scroll-mt-24 border-t border-border"
     >
       <div className="mx-auto max-w-[87.5rem] px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">

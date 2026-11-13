@@ -5,7 +5,7 @@
  * section — it is the biggest type on the page after the name, and it is a real
  * `mailto:`. The two practical lines beside it answer "where" and "prints"
  * without turning into a form.
- * --- @ty.aicoding@1794387380929 ---
+ * --- @ty.aicoding@1794551031437 ---
  */
 import { contact, site } from "@/lib/content"
 
@@ -14,7 +14,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="scroll-mt-20 border-t border-border"
+      className="scroll-mt-24 border-t border-border"
     >
       <div className="mx-auto max-w-[87.5rem] px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
