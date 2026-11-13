@@ -1,19 +1,23 @@
-import { Button } from "@/components/ui/button"
+/**
+ * The single route of the site. Sections are composed in reading order —
+ * introduction, work, about, pricing, contact — so the page works as one scroll
+ * with the header links acting as a contents list.
+ * --- @ty.aicoding@1794387391782 ---
+ */
+import { About } from "@/components/sections/about"
+import { Contact } from "@/components/sections/contact"
+import { Hero } from "@/components/sections/hero"
+import { Pricing } from "@/components/sections/pricing"
+import { Work } from "@/components/sections/work"
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <>
+      <Hero />
+      <Work />
+      <About />
+      <Pricing />
+      <Contact />
+    </>
   )
 }
