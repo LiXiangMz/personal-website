@@ -111,10 +111,14 @@ makes no request to a font CDN. Both are under the SIL Open Font License 1.1;
 
 ## Theme and component scaffold
 
-The site is light-only. `components/theme-provider.tsx` pins the theme and
+The site is light-only. `components/theme-provider.tsx` forces the theme and
 exposes no switch — the template's bare `d` keyboard toggle is gone, so a
-stray keypress cannot repaint the site. There are no dark tokens in
-`app/globals.css` and no `dark:` utilities in the components.
+stray keypress cannot repaint the site, and `forcedTheme` means a `theme=dark`
+value left in `localStorage` by an earlier build cannot repaint it either
+(without it, `next-themes` prefers the stored value over the default and the
+page would come up with `color-scheme: dark`: dark native scrollbars and form
+controls on a light page). There are no dark tokens in `app/globals.css` and no
+`dark:` utilities in the components.
 
 The two `@hugeicons/*` packages are kept unused for now: `components.json`
 names `hugeicons` as the icon library, so adding a shadcn component later
