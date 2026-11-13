@@ -6,7 +6,9 @@
  * (what I shoot, where) in small sans. The photograph then runs full-bleed,
  * edge to edge, so the first thing a visitor meets is a picture rather than a
  * card — the caption sits below it, aligned back to the text column.
- * --- @ty.aicoding@1794387328754 ---
+ *
+ * All of the wording comes from `lib/content.ts`; this file holds the layout.
+ * --- @ty.aicoding@1794535442805 ---
  */
 import Image from "next/image"
 import Link from "next/link"
@@ -32,15 +34,14 @@ export function Hero() {
           </div>
           <div className="lg:col-span-4 lg:col-start-9">
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Coastlines, forests and weather, photographed in the first and
-              last hours of daylight. {site.location}.
+              {hero.intro} {site.location}.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-3">
               <Link
                 href="#work"
                 className="group inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-sm transition-colors hover:border-foreground"
               >
-                Selected work
+                {hero.workLink}
                 <span
                   aria-hidden
                   className="transition-transform duration-300 group-hover:translate-y-0.5"
@@ -74,7 +75,7 @@ export function Hero() {
           <span className="label-caps text-muted-foreground">
             {hero.caption}
           </span>
-          <span className="label-caps hidden text-muted-foreground sm:block">
+          <span className="hidden label-caps text-muted-foreground sm:block">
             {site.location}
           </span>
         </figcaption>

@@ -4,11 +4,15 @@
  * recurs in the shoreline work, used for links and small rules, never as a
  * fill for large areas.
  *
+ * The light accent is dark enough to clear 4.5:1 against the paper even at
+ * 11px with wide letter-spacing (oklch 0.51 / 0.058 / 205 ≈ 5.4:1), so the
+ * small caps labels that use it are readable rather than marginal.
+ *
  * Typography: Inter for anything read line by line (navigation, captions,
  * pricing detail), Cormorant Garamond for display type (name, section titles,
  * pull quotes). The pairing is deliberate — the serif carries the images, the
  * sans carries the facts.
- * --- @ty.aicoding@1794386789913 ---
+ * --- @ty.aicoding@1794535505513 ---
  */
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -29,12 +33,12 @@
   --secondary-foreground: oklch(0.25 0.01 60);
   --muted: oklch(0.955 0.006 85);
   --muted-foreground: oklch(0.52 0.012 60);
-  --accent: oklch(0.55 0.055 205);
+  --accent: oklch(0.51 0.058 205);
   --accent-foreground: oklch(0.985 0.003 85);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.9 0.006 80);
   --input: oklch(0.9 0.006 80);
-  --ring: oklch(0.55 0.055 205);
+  --ring: oklch(0.51 0.058 205);
   --chart-1: oklch(0.837 0.128 66.29);
   --chart-2: oklch(0.705 0.213 47.604);
   --chart-3: oklch(0.646 0.222 41.116);
@@ -48,7 +52,7 @@
   --sidebar-accent: oklch(0.955 0.006 85);
   --sidebar-accent-foreground: oklch(0.25 0.01 60);
   --sidebar-border: oklch(0.9 0.006 80);
-  --sidebar-ring: oklch(0.55 0.055 205);
+  --sidebar-ring: oklch(0.51 0.058 205);
 }
 
 .dark {
@@ -155,8 +159,4 @@
   line-height: 1.2;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-}
-
-@utility rule-line {
-  border-top: 1px solid var(--border);
 }

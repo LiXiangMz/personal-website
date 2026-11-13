@@ -7,7 +7,10 @@
  * row per tier, the fee right-aligned in figures — and without cards, badges or
  * a highlighted "most popular" column. The three notes underneath answer the
  * questions the numbers raise.
- * --- @ty.aicoding@1794387370422 ---
+ *
+ * Heading, caption, column names and the closing link label live in
+ * `lib/content.ts` with the rest of the copy.
+ * --- @ty.aicoding@1794535467522 ---
  */
 import { pricing, site } from "@/lib/content"
 
@@ -25,7 +28,7 @@ export function Pricing() {
               id="pricing-title"
               className="font-heading text-3xl font-light tracking-[-0.01em] sm:text-4xl"
             >
-              Pricing
+              {pricing.heading}
             </h2>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
               {pricing.intro}
@@ -34,25 +37,26 @@ export function Pricing() {
 
           <div className="lg:col-span-7 lg:col-start-6">
             <table className="w-full border-collapse text-left">
-              <caption className="sr-only">
-                Session types, what each covers and the fee
-              </caption>
+              <caption className="sr-only">{pricing.caption}</caption>
               <thead>
                 <tr className="border-b border-foreground/25">
-                  <th scope="col" className="label-caps pb-3 text-muted-foreground">
-                    Session
+                  <th
+                    scope="col"
+                    className="pb-3 label-caps text-muted-foreground"
+                  >
+                    {pricing.columns.session}
                   </th>
                   <th
                     scope="col"
-                    className="label-caps hidden pb-3 text-muted-foreground sm:table-cell"
+                    className="hidden pb-3 label-caps text-muted-foreground sm:table-cell"
                   >
-                    Includes
+                    {pricing.columns.includes}
                   </th>
                   <th
                     scope="col"
-                    className="label-caps pb-3 text-right text-muted-foreground"
+                    className="pb-3 text-right label-caps text-muted-foreground"
                   >
-                    Fee
+                    {pricing.columns.fee}
                   </th>
                 </tr>
               </thead>
@@ -105,7 +109,7 @@ export function Pricing() {
                 href={`mailto:${site.email}?subject=Commission%20enquiry`}
                 className="border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
               >
-                Ask about a date
+                {pricing.cta}
               </a>
             </p>
           </div>

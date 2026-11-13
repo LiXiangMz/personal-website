@@ -7,12 +7,26 @@
  * frame sits; the frame itself carries the crop, so the caption sits directly
  * under the image at its own height. Captions are small and set under the
  * image, aligned to its outer edge.
- * --- @ty.aicoding@1794387531095 ---
+ *
+ * The heading and the "n photographs, years" line come from `lib/content.ts`,
+ * where the line is derived from `works` rather than written by hand.
+ * --- @ty.aicoding@1794535455860 ---
  */
 import Image from "next/image"
 
-import { works } from "@/lib/content"
+import { workSection, works } from "@/lib/content"
 import { cn } from "@/lib/utils"
+
+/**
+ * Grid cell width as a fraction of the twelve-column band, so `next/image`
+ * asks for a file that matches the frame it is drawn into: a seven-column
+ * frame on a 1400px container is roughly 58vw, a four-column one about 33vw.
+ */
+function frameSizes(cell: string) {
+  const span = Number.parseInt(cell.match(/col-span-(\d+)/)?.[1] ?? "12", 10)
+
+  return `(min-width: 640px) ${Math.round((span / 12) * 100)}vw, 100vw`
+}
 
 export function Work() {
   return (
@@ -23,10 +37,10 @@ export function Work() {
             id="work-title"
             className="font-heading text-3xl font-light tracking-[-0.01em] sm:text-4xl"
           >
-            Selected work
+            {workSection.heading}
           </h2>
           <p className="label-caps text-muted-foreground">
-            Eight photographs, 2023—2025
+            {workSection.summary}
           </p>
         </div>
 
@@ -44,7 +58,7 @@ export function Work() {
                     src={work.src}
                     alt={work.alt}
                     fill
-                    sizes="(min-width: 640px) 50vw, 100vw"
+                    sizes={frameSizes(work.cell)}
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
                   />
                 </div>
@@ -52,7 +66,7 @@ export function Work() {
                   <span className="font-heading text-lg leading-tight font-light">
                     {work.title}
                   </span>
-                  <span className="label-caps shrink-0 text-muted-foreground">
+                  <span className="shrink-0 label-caps text-muted-foreground">
                     {work.place} · {work.year}
                   </span>
                 </figcaption>

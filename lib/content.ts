@@ -5,7 +5,12 @@
  * the photographer's name, the biography, the email address, the client list
  * and every photograph under `assets/photos/`. Section copy is written to be
  * read as-is until then.
- * --- @ty.aicoding@1794387547824 ---
+ *
+ * Section headings, table headers and link labels live here too, next to the
+ * copy they belong with — the components hold layout only. The work-section
+ * count and year range are derived from `works`, so adding or removing a
+ * photograph keeps that line true.
+ * --- @ty.aicoding@1794535335110 ---
  */
 import type { StaticImageData } from "next/image"
 
@@ -55,6 +60,8 @@ export const site = {
   tagline: "Light, held still.",
   email: "hello@xiangli.photo",
   location: "Shanghai, working wherever the light is",
+  /** Placeholder domain — used for canonical URLs and social cards. */
+  url: "https://xiangli.photo",
   description:
     "Landscape and commission photography by Xiang Li — coastlines, forests and weather, photographed in the first and last hours of daylight.",
   year: 2026,
@@ -71,6 +78,9 @@ export const hero = {
   image: heroImage,
   alt: "Placeholder: low sun over a wide field, long shadows across the grass",
   caption: "Field study, late summer — placeholder image",
+  intro:
+    "Coastlines, forests and weather, photographed in the first and last hours of daylight.",
+  workLink: "Selected work",
 }
 
 export const about = {
@@ -173,7 +183,45 @@ export const works: Photograph[] = [
   },
 ]
 
+/**
+ * Span of `year` across the given photographs, for the line above the grid.
+ * Returns an empty string when no entry carries a parsable year.
+ * --- @ty.aicoding@1794535335110 ---
+ */
+function yearRange(list: Photograph[]) {
+  const years = list
+    .map((work) => Number.parseInt(work.year, 10))
+    .filter((year) => Number.isFinite(year))
+
+  if (years.length === 0) {
+    return ""
+  }
+
+  const first = Math.min(...years)
+  const last = Math.max(...years)
+
+  return first === last ? `${first}` : `${first}—${last}`
+}
+
+/**
+ * Heading and the small line above the grid. The count and the year span are
+ * derived from `works`, so adding or removing a photograph keeps them true.
+ * --- @ty.aicoding@1794535335110 ---
+ */
+export const workSection = {
+  heading: "Selected work",
+  summary: `${works.length} photographs, ${yearRange(works)}`,
+}
+
 export const pricing = {
+  heading: "Pricing",
+  caption: "Session types, what each covers and the fee",
+  columns: {
+    session: "Session",
+    includes: "Includes",
+    fee: "Fee",
+  },
+  cta: "Ask about a date",
   intro:
     "Three ways to work together. Fees below are for photography and editing; travel outside Shanghai is quoted at cost, and licensing is agreed in writing before the shoot.",
   tiers: [
