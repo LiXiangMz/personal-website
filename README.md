@@ -1,4 +1,4 @@
-# Xiang Li — photography portfolio
+# Alex Morgan — photography portfolio
 
 A single-page portfolio for a landscape and commission photographer: an
 introduction, a curated set of photographs, an about section, a pricing table
@@ -87,8 +87,8 @@ the year span all follow from it.
 `site` in `lib/content.ts` holds the name, wordmark, role line, tagline, email
 address, location, the meta description and `url` — the site's own address,
 used for the canonical link, the social-card URL and the Open Graph image URL.
-`url` is currently the placeholder `https://xiangli.photo`; point it at the
-real domain before publishing.
+`url` is currently the placeholder `https://alexmorgan.example`; point it at
+the real domain before publishing.
 
 The email address appears in five places on the page — hero, pricing, the large
 contact link, the footer, and the contact channel list — all reading from

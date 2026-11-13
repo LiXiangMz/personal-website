@@ -52,18 +52,20 @@ export type PriceTier = {
   unit: string
 }
 
-/** Placeholder identity — replace with the owner's real name and address. */
+/** Placeholder identity — replace with the owner's real name and address.
+ * --- @ty.aicoding@1794558527385 ---
+ */
 export const site = {
-  name: "Xiang Li",
-  wordmark: "Xiang Li",
+  name: "Alex Morgan",
+  wordmark: "Alex Morgan",
   role: "Landscape & commission photography",
   tagline: "Light, held still.",
-  email: "hello@xiangli.photo",
+  email: "hello@example.com",
   location: "Shanghai, working wherever the light is",
   /** Placeholder domain — used for canonical URLs and social cards. */
-  url: "https://xiangli.photo",
+  url: "https://alexmorgan.example",
   description:
-    "Landscape and commission photography by Xiang Li — coastlines, forests and weather, photographed in the first and last hours of daylight.",
+    "Landscape and commission photography by Alex Morgan — coastlines, forests and weather, photographed in the first and last hours of daylight.",
   year: 2026,
 }
 
